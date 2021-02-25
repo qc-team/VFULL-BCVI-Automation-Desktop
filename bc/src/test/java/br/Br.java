@@ -19,62 +19,62 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class Br extends ClassProperties
 		implements InitiateChromeDriver, Login, SearchingRules, AddingRules, WaitingForLoading, CloseChromeDriver {
 	
-	public Br() {
-		//start reporter
-		ExtentSparkReporter htmlReporter=new ExtentSparkReporter("extent.html");
-		// create html reportes and attach reporter
-		ExtentReports extent =new ExtentReports();
-		extent.attachReporter(htmlReporter);
-		//create toggle for given test
-		ExtentTest test1=extent.createTest("Testing border control subsystems");
-		
-		
-		// TODO Initiate Chrome Driver for use
-		    test1.log(Status.INFO, "Starting Chrome Driver");
-		    initiateChromeDriver();
-		    test1.pass("start chrome successfully");
-
-		// TODO Login to BR Subsystem with valid credentials
-		    test1.log(Status.INFO, "login to BR subsystem");
-		    loginToSystem();
-		    test1.pass("login successfully to br subsystem");
-		    test1.addScreenCaptureFromPath("login.png");
-
-		// TODO waiting for 7 seconds for system loading
-		    test1.log(Status.INFO, "wait 5 sec for system for loading");
-		    waitForLoading();
-
-		// TODO Check user Guide
-		    test1.log(Status.INFO, "start user guide");
-		    userGuide();
-		    test1.pass("Testing user guide");
-
-		// TODO waiting for 7 seconds for system loading
-		   test1.log(Status.INFO, "wait 5 sec for system for loading");
-		   waitForLoading();
-
-		// TODO search business rules
-		   test1.log(Status.INFO, "searching for business rule");
-		   searchBusinessRules();
-		   test1.pass("searching successfully for business rule");
-
-		// TODO waiting for 7 seconds for system loading
-		   test1.log(Status.INFO, "wait 5 sec for system for loading");
-		   waitForLoading();
-
-		// TODO add new business rule
-		   test1.log(Status.INFO, "Adding new business rule");
-		   addingNewBusinessRules();
-		   test1.pass("Adding new business rule successfully");
-
-		// TODO close system and shutdown chrome driver
-		   test1.log(Status.INFO, "close chrome driver");
-		   closeChromeDriver();
-		   
-		//flush all log files
-		   extent.flush();
-
-	}
+//	public Br() {
+//		//start reporter
+//		ExtentSparkReporter htmlReporter=new ExtentSparkReporter("extent.html");
+//		// create html reportes and attach reporter
+//		ExtentReports extent =new ExtentReports();
+//		extent.attachReporter(htmlReporter);
+//		//create toggle for given test
+//		ExtentTest test1=extent.createTest("Testing border control subsystems");
+//		
+//		
+//		// TODO Initiate Chrome Driver for use
+//		    test1.log(Status.INFO, "Starting Chrome Driver");
+//		    initiateChromeDriver();
+//		    test1.pass("start chrome successfully");
+//
+//		// TODO Login to BR Subsystem with valid credentials
+//		    test1.log(Status.INFO, "login to BR subsystem");
+//		    loginToSystem();
+//		    test1.pass("login successfully to br subsystem");
+//		    test1.addScreenCaptureFromPath("login.png");
+//
+//		// TODO waiting for 7 seconds for system loading
+//		    test1.log(Status.INFO, "wait 5 sec for system for loading");
+//		    waitForLoading();
+//
+//		// TODO Check user Guide
+//		    test1.log(Status.INFO, "start user guide");
+//		    userGuide();
+//		    test1.pass("Testing user guide");
+//
+//		// TODO waiting for 7 seconds for system loading
+//		   test1.log(Status.INFO, "wait 5 sec for system for loading");
+//		   waitForLoading();
+//
+//		// TODO search business rules
+//		   test1.log(Status.INFO, "searching for business rule");
+//		   searchBusinessRules();
+//		   test1.pass("searching successfully for business rule");
+//
+//		// TODO waiting for 7 seconds for system loading
+//		   test1.log(Status.INFO, "wait 5 sec for system for loading");
+//		   waitForLoading();
+//
+//		// TODO add new business rule
+//		   test1.log(Status.INFO, "Adding new business rule");
+//		   addingNewBusinessRules();
+//		   test1.pass("Adding new business rule successfully");
+//
+//		// TODO close system and shutdown chrome driver
+//		   test1.log(Status.INFO, "close chrome driver");
+//		   closeChromeDriver();
+//		   
+//		//flush all log files
+//		   extent.flush();
+//
+//	}
 
 	@BeforeTest
 	public void initiateChromeDriver() {
