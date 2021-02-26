@@ -1,5 +1,7 @@
 package main;
 
+import eresidency_adminustration.EResidencyAdmin;
+
 //import br.Br;
 
 public class MainEntry {
@@ -7,7 +9,7 @@ public class MainEntry {
 	public static void main(String[] args) {
 
 		// TODO test br subsystem
-//		Br testBR = new Br();
+		EResidencyAdmin testBR = new EResidencyAdmin();
 		
 	}
 

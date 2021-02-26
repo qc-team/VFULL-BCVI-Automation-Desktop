@@ -1,4 +1,4 @@
-package ep;
+package eresidency_public;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -11,26 +11,12 @@ import br.Login;
 import br.WaitingForLoading;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Ep extends ClassProperties implements InitiateChromeDriver, Login , WaitingForLoading {
-	
-	public Ep() {
+public class EResidencyPublic extends ClassProperties implements InitiateChromeDriver, WaitingForLoading{
+
+	public EResidencyPublic() {
+		// TODO Auto-generated constructor stub
 		initiateChromeDriver();
-		loginToSystem();
 		waitForLoading();
-	}
-
-	public void loginToSystem() {
-		// TODO Auto-generated method stub
-		// Connect to db to get username and password
-//		MysqlConnect mysqlConnect = new MysqlConnect();
-//		mysqlConnect.startdbConnection();
-		WebElement userName = chromeDriver.findElement(By.id("userName"));
-		userName.sendKeys("Admin");
-		WebElement password = chromeDriver.findElement(By.id("password"));
-		password.sendKeys("S3cr3tP4ss");
-		password.sendKeys(Keys.ENTER);
-		waitForLoading();
-
 	}
 
 	@Override
@@ -41,7 +27,7 @@ public class Ep extends ClassProperties implements InitiateChromeDriver, Login ,
 		this.chromeDriver = new ChromeDriver();
 		this.chromeDriver.manage().window().maximize();
 
-		chromeDriver.get("http://cqcehap001.qcenv.idemia.local/nationalid_frontend/#/login");
+		chromeDriver.get("http://cqcehap001.qcenv.idemia.local/eresidency-portal_frontend/");
 	}
 
 	@Override
@@ -53,7 +39,6 @@ public class Ep extends ClassProperties implements InitiateChromeDriver, Login ,
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
 
 }

@@ -1,4 +1,4 @@
-package ep;
+package evisa_administration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -11,20 +11,22 @@ import br.Login;
 import br.WaitingForLoading;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Ep extends ClassProperties implements InitiateChromeDriver, Login , WaitingForLoading {
+public class EVisaAdminImplementation extends ClassProperties implements InitiateChromeDriver, Login, WaitingForLoading{
 	
-	public Ep() {
+	public EVisaAdminImplementation() {
+		// TODO Auto-generated constructor stub
 		initiateChromeDriver();
 		loginToSystem();
 		waitForLoading();
 	}
 
+	@Override
 	public void loginToSystem() {
 		// TODO Auto-generated method stub
 		// Connect to db to get username and password
 //		MysqlConnect mysqlConnect = new MysqlConnect();
 //		mysqlConnect.startdbConnection();
-		WebElement userName = chromeDriver.findElement(By.id("userName"));
+		WebElement userName = chromeDriver.findElement(By.id("username"));
 		userName.sendKeys("Admin");
 		WebElement password = chromeDriver.findElement(By.id("password"));
 		password.sendKeys("S3cr3tP4ss");
@@ -41,7 +43,7 @@ public class Ep extends ClassProperties implements InitiateChromeDriver, Login ,
 		this.chromeDriver = new ChromeDriver();
 		this.chromeDriver.manage().window().maximize();
 
-		chromeDriver.get("http://cqcehap001.qcenv.idemia.local/nationalid_frontend/#/login");
+		chromeDriver.get("http://cqcehap001.qcenv.idemia.local/evisa-administration-frontend-mofa/#/login");
 	}
 
 	@Override

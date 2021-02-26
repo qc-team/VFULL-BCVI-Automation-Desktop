@@ -1,4 +1,4 @@
-package ep;
+package flm;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -11,14 +11,16 @@ import br.Login;
 import br.WaitingForLoading;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Ep extends ClassProperties implements InitiateChromeDriver, Login , WaitingForLoading {
-	
-	public Ep() {
+public class FLMImplementation extends ClassProperties implements InitiateChromeDriver, Login, WaitingForLoading {
+
+	public FLMImplementation() {
+		// TODO Auto-generated constructor stub
 		initiateChromeDriver();
 		loginToSystem();
 		waitForLoading();
 	}
 
+	@Override
 	public void loginToSystem() {
 		// TODO Auto-generated method stub
 		// Connect to db to get username and password
@@ -41,7 +43,7 @@ public class Ep extends ClassProperties implements InitiateChromeDriver, Login ,
 		this.chromeDriver = new ChromeDriver();
 		this.chromeDriver.manage().window().maximize();
 
-		chromeDriver.get("http://cqcehap001.qcenv.idemia.local/nationalid_frontend/#/login");
+		chromeDriver.get("http://cqcehap001.qcenv.idemia.local/flightmanagement_frontend/#/app-login");
 	}
 
 	@Override
