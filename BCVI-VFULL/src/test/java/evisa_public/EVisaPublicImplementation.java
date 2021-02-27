@@ -5,6 +5,11 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
 import br.ClassProperties;
 import br.InitiateChromeDriver;
 import br.Login;
@@ -15,7 +20,20 @@ public class EVisaPublicImplementation extends ClassProperties implements Initia
 	
 	public EVisaPublicImplementation() {
 		// TODO Auto-generated constructor stub
+		//start reporter
+		ExtentSparkReporter htmlReporter=new ExtentSparkReporter("Evisa/public/testReport.html");
+		// create html reportes and attach reporter
+		ExtentReports extent =new ExtentReports();
+		extent.attachReporter(htmlReporter);
+		//create toggle for given test
+		ExtentTest test1=extent.createTest("Testing EVisa Public Portal subsystems");
+		
+		test1.log(Status.INFO, "Starting Chrome Driver");
 		initiateChromeDriver();
+		test1.pass("start chrome successfully");
+		//flush all log files
+		extent.flush();
+		
 		waitForLoading();
 	}
 

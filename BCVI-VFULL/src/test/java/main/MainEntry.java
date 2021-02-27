@@ -1,16 +1,12 @@
 package main;
 
-import eresidency_adminustration.EResidencyAdmin;
-
-//import br.Br;
+import ui.LoginFrame;
 
 public class MainEntry {
 
 	public static void main(String[] args) {
-
-		// TODO test br subsystem
-		EResidencyAdmin testBR = new EResidencyAdmin();
-		
+		// Creating object of LoginFrame class and setting some of its properties
+		LoginFrame login=new LoginFrame();
 	}
 
 }
