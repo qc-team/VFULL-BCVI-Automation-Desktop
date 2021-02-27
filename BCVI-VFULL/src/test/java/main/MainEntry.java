@@ -5,7 +5,7 @@ import ui.LoginFrame;
 public class MainEntry {
 
 	public static void main(String[] args) {
-		// Creating object of LoginFrame class and setting some of its properties
+		// Creating object of LoginFrame class
 		LoginFrame login=new LoginFrame();
 	}
 
