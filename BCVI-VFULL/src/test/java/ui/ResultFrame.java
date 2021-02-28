@@ -13,10 +13,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import mailing.ReportMail;
+
 public class ResultFrame {
-	
+
 	DrawResultFrame frame;
-	
+
 	public ResultFrame() {
 		frame = new DrawResultFrame();
 		frame.setTitle("Results");
@@ -28,9 +30,9 @@ public class ResultFrame {
 		ImageIcon img = new ImageIcon("././././images/idemia.jpg");
 		frame.setIconImage(img.getImage());
 	}
-	
-	public class DrawResultFrame extends JFrame implements ActionListener{
-		
+
+	public class DrawResultFrame extends JFrame implements ActionListener {
+
 		private static final long serialVersionUID = 1L;
 		Container container = getContentPane();
 		ImageIcon icon = new ImageIcon("././././images/idemia.jpg");
@@ -38,6 +40,7 @@ public class ResultFrame {
 		JLabel labe2 = new JLabel("Results");
 		JButton back = new JButton("Back");
 		JButton showReport = new JButton("Show Test Report");
+		JButton mailReport = new JButton("Send by mail");
 
 		public DrawResultFrame() {
 			// calling layout manager
@@ -53,20 +56,25 @@ public class ResultFrame {
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			// Coding Part of back button
-						if (e.getSource() == back) {
-							frame.dispose();
-							ChooseSystem chooseSystem=new ChooseSystem();
-						}
-			// Coding Part of show results button	
-						if (e.getSource() == showReport) {
-							File htmlFile = new File("Evisa/public/testReport.html");
-							try {
-								Desktop.getDesktop().browse(htmlFile.toURI());
-							} catch (IOException e1) {
-								// TODO Auto-generated catch block
-								e1.printStackTrace();
-							}
-						}
+			if (e.getSource() == back) {
+				frame.dispose();
+				ChooseSystem chooseSystem = new ChooseSystem();
+			}
+			// Coding Part of show results button
+			if (e.getSource() == showReport) {
+				File htmlFile = new File("Evisa/public/testReport.html");
+				try {
+					Desktop.getDesktop().browse(htmlFile.toURI());
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			// Coding Part of send by mail button
+			if (e.getSource() == mailReport) {
+				//TODO add mail report
+				ReportMail reportMail=new ReportMail();
+			}
 		}
 
 		public void setLayoutManager() {
@@ -77,8 +85,9 @@ public class ResultFrame {
 			// Setting location and Size of each components using setBounds() method.
 			label.setBounds(120, 0, 130, 130);
 			labe2.setBounds(155, 125, 100, 30);
-			back.setBounds(50, 300, 100, 30);
+			back.setBounds(50, 300, 140, 30);
 			showReport.setBounds(200, 300, 140, 30);
+			mailReport.setBounds(120, 340, 140, 30);
 
 		}
 
@@ -88,12 +97,15 @@ public class ResultFrame {
 			container.add(labe2);
 			container.add(back);
 			container.add(showReport);
+			container.add(mailReport);
 		}
 
 		public void addActionEvent() {
 			// adding Action listener to components
 			back.addActionListener(this);
 			showReport.addActionListener(this);
+			mailReport.addActionListener(this);
+			;
 		}
 	}
 

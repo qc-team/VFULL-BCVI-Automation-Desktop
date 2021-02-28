@@ -1,6 +1,7 @@
 package main;
 
 import ui.LoginFrame;
+import ui.ResultFrame;
 
 public class MainEntry {
 
